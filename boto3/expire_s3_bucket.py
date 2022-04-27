@@ -1,6 +1,6 @@
 import logging
 import boto3
-import datetime, os, json, boto3
+import datetime, os, json
 from botocore.exceptions import ClientError
 
 session = boto3.session.Session(profile_name='default')
@@ -13,8 +13,6 @@ response = s3.list_buckets()
 # Output the bucket names
 print('Existing buckets:')
 for bucket in response['Buckets']:
-    # print(f'  {bucket["Name"]}')
-    #if 'log' in bucket['Name']:
         BUCKET = bucket["Name"]
         print(BUCKET)
         try:
